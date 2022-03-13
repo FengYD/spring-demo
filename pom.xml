@@ -17,6 +17,9 @@
         <spring.boot.starter.version>2.6.3</spring.boot.starter.version>
         <spring.boot.starter.web.version>2.6.0</spring.boot.starter.web.version>
         <lombok.version>RELEASE</lombok.version>
+        <h2.version>1.4.196</h2.version>
+        <mybatis.version>3.3.0</mybatis.version>
+        <spring-data-jpa.version>2.6.1</spring-data-jpa.version>
     </properties>
 
 
@@ -44,7 +47,21 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>compile</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-jpa</artifactId>
+                <version>${spring-data-jpa.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -64,30 +81,5 @@
             </plugin>
         </plugins>
     </build>
-
-    <!--    <repositories>
-            <repository>
-                <id>public</id>
-                <name>aliyun nexus</name>
-                <url>https://maven.aliyun.com/repository/public</url>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-            </repository>
-        </repositories>
-
-        <pluginRepositories>
-            <pluginRepository>
-                <id>public</id>
-                <name>aliyun nexus</name>
-                <url>https://maven.aliyun.com/repository/public</url>
-                <releases>
-                    <enabled>true</enabled>
-                </releases>
-                <snapshots>
-                    <enabled>false</enabled>
-                </snapshots>
-            </pluginRepository>
-        </pluginRepositories>-->
 
 </project>
