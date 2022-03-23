@@ -15,11 +15,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <spring.boot.starter.version>2.6.3</spring.boot.starter.version>
-        <spring.boot.starter.web.version>2.6.0</spring.boot.starter.web.version>
         <lombok.version>RELEASE</lombok.version>
         <h2.version>1.4.196</h2.version>
-        <mybatis.version>3.3.0</mybatis.version>
-        <spring-data-jpa.version>2.6.1</spring-data-jpa.version>
     </properties>
 
 
@@ -42,7 +39,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring.boot.starter.web.version}</version>
+                <version>${spring.boot.starter.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -55,14 +52,14 @@
                 <version>${h2.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.mybatis</groupId>
-                <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>3.4.3</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
-                <version>${spring-data-jpa.version}</version>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.boot.starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
