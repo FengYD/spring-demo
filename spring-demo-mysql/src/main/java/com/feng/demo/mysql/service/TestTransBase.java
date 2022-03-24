@@ -1,6 +1,6 @@
 package com.feng.demo.mysql.service;
 
-import com.feng.demo.mysql.domain.User;
+import com.feng.demo.model.domain.User;
 import com.feng.demo.mysql.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 

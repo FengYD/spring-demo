@@ -2,7 +2,7 @@ package com.feng.demo.mysql.service;
 
 import com.feng.demo.model.dto.CustomException;
 import com.feng.demo.model.enums.CustomExceptionEnum;
-import com.feng.demo.mysql.domain.User;
+import com.feng.demo.model.domain.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

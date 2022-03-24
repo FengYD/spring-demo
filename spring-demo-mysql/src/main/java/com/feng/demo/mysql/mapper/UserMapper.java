@@ -1,7 +1,7 @@
 package com.feng.demo.mysql.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.feng.demo.mysql.domain.User;
+import com.feng.demo.model.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
