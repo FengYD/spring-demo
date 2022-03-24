@@ -1,9 +1,8 @@
 package com.feng.demo.mysql.domain;
 
-import com.feng.demo.model.BaseDomain;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.feng.demo.model.domain.BaseDomain;
+import lombok.*;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author fengyadong001
@@ -11,8 +10,10 @@ import lombok.NoArgsConstructor;
  * @description
  */
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class User extends BaseDomain {
 
     private String userName;

@@ -6,12 +6,20 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 20MB
-
-
-
-----dev
-spring:
-  profiles: dev
-
-
-----test
+#  datasource:
+#    hikari:
+#      jdbc-url: jdbc:mysql://localhost:3306
+#      username: root
+#      password: password
+#      driver-class-name: com.mysql.jdbc.Driver
+#      connection-timeout: 100
+#      minimum-idle: 10
+#      maximum-pool-size: 30
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2/console
+#      settings:
+#        trace: true
+#        web-admin-password: password
+#        web-allow-others: true

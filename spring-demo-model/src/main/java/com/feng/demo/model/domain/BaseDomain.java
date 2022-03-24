@@ -1,4 +1,4 @@
-package com.feng.demo.model;
+package com.feng.demo.model.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

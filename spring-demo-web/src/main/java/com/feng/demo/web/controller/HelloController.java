@@ -1,6 +1,6 @@
 package com.feng.demo.web.controller;
 
-import com.feng.demo.web.model.BaseResponse;
+import com.feng.demo.model.vo.BaseVo;
 import com.feng.demo.web.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +18,13 @@ public class HelloController {
 
     // 输出 hello world
     @RequestMapping("/hello")
-    public BaseResponse hello() {
-        return BaseResponse.success("Hello World!");
+    public BaseVo hello() {
+        return BaseVo.success("Hello World!");
     }
 
     @RequestMapping("/async")
-    public BaseResponse testAsync() {
+    public BaseVo testAsync() {
         helloService.hello();
-        return BaseResponse.success("Async生效");
+        return BaseVo.success("Async生效");
     }
 }
