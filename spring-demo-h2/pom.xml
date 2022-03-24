@@ -33,6 +33,12 @@
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-model</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-jdbc</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
