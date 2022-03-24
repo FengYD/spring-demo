@@ -1,8 +1,12 @@
 package com.feng.demo.mysql.domain;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.feng.demo.model.domain.BaseDomain;
-import lombok.*;
-import org.springframework.stereotype.Repository;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author fengyadong001
@@ -13,8 +17,11 @@ import org.springframework.stereotype.Repository;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
+@TableName("test_user")
 public class User extends BaseDomain {
+
+    @TableId
+    private Long id;
 
     private String userName;
 
