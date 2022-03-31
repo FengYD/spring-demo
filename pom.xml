@@ -29,6 +29,7 @@
         <module>spring-demo-h2</module>
         <module>spring-demo-web</module>
         <module>spring-demo-model</module>
+        <module>spring-demo-utils</module>
     </modules>
 
     <dependencyManagement>

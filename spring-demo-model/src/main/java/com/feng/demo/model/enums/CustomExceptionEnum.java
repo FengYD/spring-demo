@@ -14,7 +14,9 @@ import java.util.Arrays;
 @AllArgsConstructor
 public enum CustomExceptionEnum {
 
-    ERROR(1, "ERROR", "ERROR"),;
+    ERROR(1, "ERROR", "ERROR"),
+    UNAUTH(2, "UNAUTH", "UNAUTH"),
+    ;
 
     private Integer code;
 
