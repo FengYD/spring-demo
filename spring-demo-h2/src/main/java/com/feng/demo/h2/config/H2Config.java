@@ -14,13 +14,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 public class H2Config {
-
-//    @Bean(DataSourceKey.H2)
-//    @ConfigurationProperties(prefix = "spring.datasource.h2")
-//    public DataSource h2DataSource(){
-//        return DataSourceBuilder.create().build();
-//    }
-
+    
     @Bean(DataSourceKey.H2)
     @ConfigurationProperties(prefix = "spring.datasource.h2")
     public DataSource h2DataSource(){

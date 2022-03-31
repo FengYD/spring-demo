@@ -8,6 +8,8 @@ import com.feng.demo.model.constant.DataSourceKey;
  */
 public class DynamicDataSourceContextHolder {
 
+    private DynamicDataSourceContextHolder(){}
+
     /**
      * 动态数据源名称上下文
      */

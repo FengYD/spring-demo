@@ -2,10 +2,7 @@ package com.feng.demo.model.domain;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.feng.demo.model.domain.BaseDomain;
 import lombok.*;
-
-import java.util.Objects;
 
 /**
  * @author fengyadong001

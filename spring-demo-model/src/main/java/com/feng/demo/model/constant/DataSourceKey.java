@@ -10,4 +10,6 @@ public class DataSourceKey {
 
     public static final String H2 = "h2DataSource";
 
+    private DataSourceKey(){}
+
 }

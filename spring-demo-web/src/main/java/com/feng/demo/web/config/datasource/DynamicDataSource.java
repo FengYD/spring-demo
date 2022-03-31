@@ -1,7 +1,5 @@
 package com.feng.demo.web.config.datasource;
 
-import com.feng.demo.model.constant.DataSourceKey;
-import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
