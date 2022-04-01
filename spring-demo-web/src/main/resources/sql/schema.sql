@@ -12,8 +12,8 @@ create table user
 ) comment '用户表' auto_increment = 1;
 
 
-DROP TABLE IF EXISTS `hy_area`;
-CREATE TABLE `hy_area`
+DROP TABLE IF EXISTS `area`;
+CREATE TABLE `area`
 (
     `id`          int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
     `pid`         int(11)      DEFAULT NULL COMMENT '父id',
@@ -30,4 +30,4 @@ CREATE TABLE `hy_area`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 3750
-  DEFAULT CHARSET = utf8;
+  DEFAULT CHARSET = utf8mb4;
