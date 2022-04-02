@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.feng</groupId>
@@ -17,8 +17,10 @@
         <spring-demo.version>0.0.1-SNAPSHOT</spring-demo.version>
         <spring-boot-starter.version>2.6.3</spring-boot-starter.version>
         <mybatis-plus-boot-starter.version>3.4.3</mybatis-plus-boot-starter.version>
+        <logback.version>1.2.10</logback.version>
         <lombok.version>1.18.22</lombok.version>
         <h2.version>1.4.196</h2.version>
+        <itext7.version>7.2.1</itext7.version>
     </properties>
 
 
@@ -30,6 +32,7 @@
         <module>spring-demo-web</module>
         <module>spring-demo-model</module>
         <module>spring-demo-utils</module>
+        <module>spring-demo-minio</module>
     </modules>
 
     <dependencyManagement>
@@ -50,6 +53,12 @@
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring-boot-starter.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+            <!-- spring boot end -->
             <!-- lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -67,6 +76,7 @@
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus-boot-starter.version}</version>
             </dependency>
+            <!-- mybatis plus end -->
             <!-- h2 -->
             <dependency>
                 <groupId>com.h2database</groupId>
@@ -84,21 +94,103 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.7</version>
+                <version>1.7.32</version>
             </dependency>
             <!-- logback -->
             <dependency>
                 <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-core</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-access</artifactId>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
+            <!-- logback end -->
+            <!--  itext7 start  -->
+            <!-- always needed -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>kernel</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- always needed -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>io</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- always needed -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>layout</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for forms -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>forms</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for PDF/A -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>pdfa</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for digital signatures -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>sign</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for barcodes -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>barcodes</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for Asian fonts -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>font-asian</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!-- only needed for hyphenation -->
+            <dependency>
+                <groupId>com.itextpdf</groupId>
+                <artifactId>hyph</artifactId>
+                <version>${itext7.version}</version>
+            </dependency>
+            <!--  itext7 end  -->
+            <!-- https://mvnrepository.com/artifact/io.minio/minio -->
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>8.3.7</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.12.0</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.80</version>
+            </dependency>
+
+            <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>2.13.1</version>
+            </dependency>
+
+            <!-- 子模块  -->
             <dependency>
                 <groupId>com.feng.demo</groupId>
                 <artifactId>spring-demo-model</artifactId>
@@ -124,6 +216,12 @@
                 <artifactId>spring-demo-kafka</artifactId>
                 <version>${spring-demo.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.feng.demo</groupId>
+                <artifactId>spring-demo-minio</artifactId>
+                <version>${spring-demo.version}</version>
+            </dependency>
+            <!-- 子模块END  -->
         </dependencies>
     </dependencyManagement>
 

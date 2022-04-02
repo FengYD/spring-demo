@@ -1,7 +1,7 @@
 package com.feng.demo.web.controller;
 
-import com.feng.demo.model.vo.BaseVo;
 import com.feng.demo.model.domain.User;
+import com.feng.demo.model.vo.BaseVo;
 import com.feng.demo.mysql.service.TestTransService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +18,7 @@ public class TestTransController {
     private TestTransService testTransService;
 
 
-    @RequestMapping("/test1")
+    @RequestMapping("/trans1")
     public BaseVo test1(Integer num) {
         User user = User.builder()
                 .realName("feng")

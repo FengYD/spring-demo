@@ -28,3 +28,12 @@ spring:
         web-admin-password: password
         trace: true
         web-allow-others: true
+minio:
+  # Minio接入地址
+  endpoint: http://123.223.223.96:9999
+  # Minio AccessKey
+  accessKey: AKIAIOSFODNN7EXAMPLE
+  # Minio SecretKey
+  secretKey: AKIAIOSFODNN7EXAMPLE
+  # Minio存储桶
+  bucket: spring-demo
