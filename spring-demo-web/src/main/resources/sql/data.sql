@@ -1,5 +1,4 @@
-insert into user(id, user_name, real_name, phone, age)
-values (1, 'feng', 'feng', '123', 11);
+-- insert into user(id, user_name, real_name, phone, age) values (1, 'feng', 'feng', '123', 11);
 
 
 INSERT INTO `hy_area`
