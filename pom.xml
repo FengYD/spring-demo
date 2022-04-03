@@ -50,6 +50,11 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring-boot-starter.version}</version>
             </dependency>
@@ -195,7 +200,6 @@
                 <artifactId>apollo-client</artifactId>
                 <version>1.9.2</version>
             </dependency>
-
             <!-- 子模块  -->
             <dependency>
                 <groupId>com.feng.demo</groupId>
