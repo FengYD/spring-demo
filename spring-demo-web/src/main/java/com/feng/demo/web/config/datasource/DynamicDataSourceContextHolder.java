@@ -27,7 +27,7 @@ public class DynamicDataSourceContextHolder {
      */
     public static String getContextKey() {
         String key = DATASOURCE_CONTEXT_KEY_HOLDER.get();
-        return key == null ? DataSourceKey.H2 : key;
+        return key == null ? DataSourceKey.MYSQL : key;
     }
 
     /**

@@ -15,7 +15,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@TableName("test_user")
+@TableName("user")
 public class User extends BaseDomain {
 
     @TableId
