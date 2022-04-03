@@ -1,3 +1,5 @@
+create database demo;
+use demo;
 drop table if exists user;
 create table user
 (
@@ -9,32 +11,34 @@ create table user
     is_delete   int(1)      not null default 0 comment '是否删除',
     create_time datetime    not null default CURRENT_TIMESTAMP comment '创建时间',
     update_time datetime    not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP comment '更新时间'
-) comment '用户表' DEFAULT CHARSET = utf8mb4
-                auto_increment = 1;
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4
+  auto_increment = 1 comment '用户表';
 
 
-DROP TABLE IF EXISTS hy_area;
-CREATE TABLE hy_area
+
+DROP TABLE IF EXISTS area;
+CREATE TABLE area
 (
-    id          bigint   NOT NULL AUTO_INCREMENT COMMENT 'ID',
-    pid         bigint            DEFAULT NULL COMMENT '父id',
-    short_name  varchar(100)      DEFAULT NULL COMMENT '简称',
-    name        varchar(100)      DEFAULT NULL COMMENT '名称',
-    merger_name varchar(255)      DEFAULT NULL COMMENT '全称',
-    level       tinyint(4)        DEFAULT NULL COMMENT '层级 0 1 2 省市区县',
-    pin_yin     varchar(100)      DEFAULT NULL COMMENT '拼音',
-    code        varchar(100)      DEFAULT NULL COMMENT '长途区号',
-    zip_code    varchar(100)      DEFAULT NULL COMMENT '邮编',
-    first       varchar(50)       DEFAULT NULL COMMENT '首字母',
-    lng         varchar(100)      DEFAULT NULL COMMENT '经度',
-    lat         varchar(100)      DEFAULT NULL COMMENT '纬度',
-    is_delete   int(1)   not null default 0 comment '是否删除',
-    create_time datetime not null default CURRENT_TIMESTAMP comment '创建时间',
-    update_time datetime not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP comment '更新时间',
+    id          bigint       NOT NULL AUTO_INCREMENT COMMENT 'ID',
+    pid         bigint       NOT NULL DEFAULT '0' COMMENT '父id',
+    short_name  varchar(100) NOT NULL DEFAULT '0' COMMENT '简称',
+    name        varchar(100) NOT NULL DEFAULT '0' COMMENT '名称',
+    merger_name varchar(255) NOT NULL DEFAULT '0' COMMENT '全称',
+    level       tinyint(4)   NOT NULL DEFAULT '0' COMMENT '层级 0 1 2 省市区县',
+    pin_yin     varchar(100) NOT NULL DEFAULT '0' COMMENT '拼音',
+    code        varchar(20)  NOT NULL DEFAULT '0' COMMENT '长途区号',
+    zip_code    varchar(20)  NOT NULL DEFAULT '0' COMMENT '邮编',
+    first       varchar(10)  NOT NULL DEFAULT '0' COMMENT '首字母',
+    lng         varchar(50)  NOT NULL DEFAULT '0' COMMENT '经度',
+    lat         varchar(50)  NOT NULL DEFAULT '0' COMMENT '纬度',
+    is_delete   int(1)       not null default 0 comment '是否删除',
+    create_time datetime     not null default CURRENT_TIMESTAMP comment '创建时间',
+    update_time datetime     not null default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP comment '更新时间',
     PRIMARY KEY (id)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 3750
-  DEFAULT CHARSET = utf8mb4;
+  DEFAULT CHARSET = utf8mb4 comment '区域表';
 
 drop table if exists access_file;
 CREATE TABLE access_file
@@ -52,4 +56,4 @@ CREATE TABLE access_file
     KEY idx_path (path)
 ) ENGINE = InnoDB
   AUTO_INCREMENT = 1
-  DEFAULT CHARSET = utf8mb4;
+  DEFAULT CHARSET = utf8mb4 comment '文件表';
