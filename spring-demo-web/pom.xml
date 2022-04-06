@@ -24,6 +24,11 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
+            <artifactId>spring-demo-redis</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.feng</groupId>
             <artifactId>spring-demo-mysql</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -102,6 +107,10 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ctrip.framework.apollo</groupId>
+            <artifactId>apollo-client</artifactId>
         </dependency>
     </dependencies>
 

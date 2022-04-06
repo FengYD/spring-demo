@@ -14,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@TableName("hy_area")
+@TableName("area")
 public class Area extends BaseDomain {
     @TableId
     private Long id;
@@ -38,6 +38,4 @@ public class Area extends BaseDomain {
     private String lng;
 
     private String lat;
-
-
 }

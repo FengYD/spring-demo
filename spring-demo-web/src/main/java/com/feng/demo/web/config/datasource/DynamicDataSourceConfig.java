@@ -29,7 +29,7 @@ public class DynamicDataSourceConfig {
     public DataSource dynamicDataSource() {
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
         dynamicDataSource.setTargetDataSources(dataSourceMap);
-        dynamicDataSource.setDefaultTargetDataSource(dataSourceMap.get(DataSourceKey.H2));
+        dynamicDataSource.setDefaultTargetDataSource(dataSourceMap.get(DataSourceKey.MYSQL));
         return dynamicDataSource;
     }
 

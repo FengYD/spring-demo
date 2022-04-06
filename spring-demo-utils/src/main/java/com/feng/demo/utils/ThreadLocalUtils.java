@@ -1,10 +1,7 @@
 package com.feng.demo.utils;
 
-import com.feng.demo.model.dto.CustomException;
-import com.feng.demo.model.dto.LoginUserDTO;
-import com.feng.demo.model.enums.CustomExceptionEnum;
-import com.feng.demo.model.enums.HttpRespCodeEnum;
-
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -13,45 +10,44 @@ import java.util.Optional;
  */
 public class ThreadLocalUtils {
 
-    private static InheritableThreadLocal<LoginUserDTO> loginUserLocal = new InheritableThreadLocal<>();
-
-    /**
-     * 清除
-     */
-    public static void clear() {
-        loginUserLocal.remove();
+    private ThreadLocalUtils() {
     }
 
-    /**
-     * set信息
-     * @param loginUser 登录用户信息
-     */
-    public static void setLoginUserLocal(LoginUserDTO loginUser) {
-        LoginUserDTO loginUserDTO = LoginUserDTO.builder()
-                .userId(loginUser.getUserId())
-                .userName(loginUser.getUserName())
-                .token(loginUser.getToken())
-                .loginTime(loginUser.getLoginTime())
-                .build();
-        loginUserLocal.set(loginUserDTO);
+    private static final ThreadLocal<Map<String, Object>> threadLocal = ThreadLocal.withInitial(() -> new HashMap<>(10));
+
+    public static Map<String, Object> getThreadLocal() {
+        return threadLocal.get();
     }
 
-    /**
-     * 返回userId
-     * @return userId 用户id
-     */
-    public static Long getUserId() {
-        return Optional.ofNullable(loginUserLocal.get().getUserId())
-                .orElseThrow(() -> new CustomException(CustomExceptionEnum.UNAUTH));
+    public static <T> T get(String key) {
+        Map<String, Object> map = threadLocal.get();
+        return get(key, null);
     }
 
-    /**
-     * 返回userInfo
-     * @return UserInfo
-     */
-    public static LoginUserDTO getUserInfo() {
-        return Optional.ofNullable(loginUserLocal.get())
-                .orElseThrow(() -> new CustomException(CustomExceptionEnum.UNAUTH));
+    @SuppressWarnings("unchecked")
+    public static <T> T get(String key, T defaultValue) {
+        Map<String, Object> map = threadLocal.get();
+        return (T) Optional.ofNullable(map.get(key)).orElse(defaultValue);
+    }
+
+    public static void set(String key, Object value) {
+        Map<String, Object> map = threadLocal.get();
+        map.put(key, value);
+    }
+
+    public static void set(Map<String, Object> keyValueMap) {
+        Map<String, Object> map = threadLocal.get();
+        map.putAll(keyValueMap);
+    }
+
+    public static void remove() {
+        threadLocal.remove();
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T remove(String key) {
+        Map<String, Object> map = threadLocal.get();
+        return (T) map.remove(key);
     }
 
 }
