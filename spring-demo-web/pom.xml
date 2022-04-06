@@ -44,6 +44,16 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
+            <artifactId>srping-demo-utils</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.feng</groupId>
+            <artifactId>spring-demo-itext7</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.feng</groupId>
             <artifactId>spring-demo-minio</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
@@ -57,53 +67,7 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
         </dependency>
-        <!--  itext7 start  -->
-        <!-- always needed -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>kernel</artifactId>
-        </dependency>
-        <!-- always needed -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>io</artifactId>
-        </dependency>
-        <!-- always needed -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>layout</artifactId>
-        </dependency>
-        <!-- only needed for forms -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>forms</artifactId>
-        </dependency>
-        <!-- only needed for PDF/A -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>pdfa</artifactId>
-        </dependency>
-        <!-- only needed for digital signatures -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>sign</artifactId>
-        </dependency>
-        <!-- only needed for barcodes -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>barcodes</artifactId>
-        </dependency>
-        <!-- only needed for Asian fonts -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>font-asian</artifactId>
-        </dependency>
-        <!-- only needed for hyphenation -->
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>hyph</artifactId>
-        </dependency>
-        <!--  itext7 end  -->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>

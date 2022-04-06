@@ -20,7 +20,6 @@ public class ThreadLocalUtils {
     }
 
     public static <T> T get(String key) {
-        Map<String, Object> map = threadLocal.get();
         return get(key, null);
     }
 

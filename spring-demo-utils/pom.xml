@@ -18,6 +18,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-model</artifactId>
             <version>0.0.1-SNAPSHOT</version>

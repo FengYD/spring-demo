@@ -33,6 +33,7 @@
         <module>spring-demo-model</module>
         <module>spring-demo-utils</module>
         <module>spring-demo-minio</module>
+        <module>spring-demo-itext7</module>
     </modules>
 
     <dependencyManagement>
@@ -181,6 +182,12 @@
                 <artifactId>commons-lang3</artifactId>
                 <version>3.12.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>2.11.1</version>
+            </dependency>
             <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -200,7 +207,18 @@
                 <artifactId>apollo-client</artifactId>
                 <version>1.9.2</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>5.7.22</version>
+            </dependency>
             <!-- 子模块  -->
+            <dependency>
+                <groupId>com.feng.demo</groupId>
+                <artifactId>spring-demo-utils</artifactId>
+                <version>${spring-demo.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.feng.demo</groupId>
                 <artifactId>spring-demo-model</artifactId>
@@ -229,6 +247,11 @@
             <dependency>
                 <groupId>com.feng.demo</groupId>
                 <artifactId>spring-demo-minio</artifactId>
+                <version>${spring-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.feng.demo</groupId>
+                <artifactId>spring-demo-itext7</artifactId>
                 <version>${spring-demo.version}</version>
             </dependency>
             <!-- 子模块END  -->
