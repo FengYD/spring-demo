@@ -1,12 +1,8 @@
 package com.feng.demo.web.aspect;
 
-import cn.hutool.core.lang.UUID;
 import com.feng.demo.model.constant.ThreadLocalKey;
-import com.feng.demo.model.dto.CustomException;
-import com.feng.demo.model.enums.CustomExceptionEnum;
 import com.feng.demo.utils.ThreadLocalUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -30,20 +26,20 @@ public class WatchAspect {
     @Autowired
     private HttpServletRequest request;
 
-    @Pointcut("execution(* com.feng.demo.web.controller.*(..)) && @annotation(com.feng.demo.web.aspect.TimeWatch)")
-    public void cutPoint() {
+    @Pointcut("execution(public * com.feng.demo.web.controller.*.*(..)) && @annotation(com.feng.demo.web.aspect.TimeWatch)")
+    public void watch() {
     }
 
-    @Before("cutPoint()")
+    @Before("watch()")
     public void cutBefore() {
         ThreadLocalUtils.set(ThreadLocalKey.START_TIME, System.nanoTime());
         String uri = request.getRequestURI();
         ThreadLocalUtils.set(ThreadLocalKey.URI, uri);
-        log.info("traceId: {}, uri: {}, start: {}",ThreadLocalUtils.get(ThreadLocalKey.TRACE_ID),
-                uri ,ThreadLocalUtils.get(ThreadLocalKey.START_TIME));
+        log.info("traceId: {}, uri: {}, start: {}", ThreadLocalUtils.get(ThreadLocalKey.TRACE_ID),
+                uri, ThreadLocalUtils.get(ThreadLocalKey.START_TIME));
     }
 
-    @After("cutPoint()")
+    @After("watch()")
     public void cutAfter() {
         ThreadLocalUtils.set(ThreadLocalKey.END_TIME, System.nanoTime());
         long costTime = (long)ThreadLocalUtils.get(ThreadLocalKey.END_TIME) -

@@ -1,6 +1,8 @@
 package com.feng.demo.web.controller;
 
 import com.feng.demo.model.vo.BaseVo;
+import com.feng.demo.web.aspect.AuthToken;
+import com.feng.demo.web.aspect.TimeWatch;
 import com.feng.demo.web.config.datasource.DynamicDataSourceContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
 
     // 输出 hello world
+    @TimeWatch
+    @AuthToken
     @RequestMapping("/hello")
     public BaseVo hello() {
         DynamicDataSourceContextHolder.getContextKey();

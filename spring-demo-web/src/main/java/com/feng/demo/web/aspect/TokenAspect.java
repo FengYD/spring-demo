@@ -7,7 +7,6 @@ import com.feng.demo.model.enums.CustomExceptionEnum;
 import com.feng.demo.utils.ThreadLocalUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -33,11 +32,12 @@ public class TokenAspect {
 
     private static final String TOKEN = "token";
 
-    @Pointcut("execution(* com.feng.demo.web.controller.*(..)) && @annotation(com.feng.demo.web.aspect.AuthToken)")
-    public void cutPoint() {  }
+    @Pointcut("execution(public * com.feng.demo.web.controller.*.*(..)) && @annotation(com.feng.demo.web.aspect.AuthToken)")
+    public void token() {
+    }
 
-    @Before("cutPoint()")
-    public void authBefore(){
+    @Before("token()")
+    public void authBefore() {
         ThreadLocalUtils.remove();
         String token = request.getHeader(TOKEN);
         String uri = request.getRequestURI();
