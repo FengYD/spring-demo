@@ -34,6 +34,7 @@
         <module>spring-demo-utils</module>
         <module>spring-demo-minio</module>
         <module>spring-demo-itext7</module>
+        <module>spring-demo-office</module>
     </modules>
 
     <dependencyManagement>
@@ -219,6 +220,17 @@
                 <artifactId>poi-ooxml</artifactId>
                 <version>5.1.0</version>
             </dependency>
+            <!-- https://mvnrepository.com/artifact/org.freemarker/freemarker -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.31</version>
+            </dependency>
+            <dependency>
+                <groupId>com.deepoove</groupId>
+                <artifactId>poi-tl</artifactId>
+                <version>1.11.1</version>
+            </dependency>
             <!-- 子模块  -->
             <dependency>
                 <groupId>com.feng.demo</groupId>
@@ -258,6 +270,11 @@
             <dependency>
                 <groupId>com.feng.demo</groupId>
                 <artifactId>spring-demo-itext7</artifactId>
+                <version>${spring-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.feng.demo</groupId>
+                <artifactId>spring-demo-office</artifactId>
                 <version>${spring-demo.version}</version>
             </dependency>
             <!-- 子模块END  -->
