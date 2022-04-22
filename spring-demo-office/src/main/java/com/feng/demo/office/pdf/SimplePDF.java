@@ -1,13 +1,16 @@
 package com.feng.demo.office.pdf;
 
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.List;
 import com.itextpdf.layout.element.ListItem;
 import com.itextpdf.layout.element.Paragraph;
+import org.springframework.core.io.ClassPathResource;
 
 /**
  * @author fengyadong
@@ -53,6 +56,15 @@ public class SimplePDF {
                 .add(new ListItem("Never gonna tell a lie and hurt you"));
         // Add the list
         document.add(list);
+        ClassPathResource dogPng = new ClassPathResource("img/dog.png");
+        ClassPathResource foxPng = new ClassPathResource("img/fox.png");
+        Image fox = new Image(ImageDataFactory.create(foxPng.getURL()));
+        Image dog = new Image(ImageDataFactory.create(dogPng.getURL()));
+        Paragraph p = new Paragraph("The quick brown ")
+                .add(fox)
+                .add(" jumps over the lazy ")
+                .add(dog);
+        document.add(p);
         document.close();
     }
 }
