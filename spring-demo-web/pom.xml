@@ -44,7 +44,7 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
-            <artifactId>srping-demo-utils</artifactId>
+            <artifactId>spring-demo-utils</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
