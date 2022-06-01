@@ -1,49 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration debug="false">
-    <!--设置存储路径变量-->
-    <property name="LOG_HOME" value="${log.home}"/>
-    <!--控制台输出appender-->
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+    <contextName>logback</contextName>
+    <!--pattern带颜色输出-->
+    <property name="log.pattern"
+              value="%yellow(%d{yyyy/MM/dd-HH:mm:ss:SSS}) %magenta([%thread]) %green(%-5level) %gray(%X{TRACE_ID}) %cyan(%logger)- %highlight(%msg%n)"/>
+
+    <springProperty scope="context" name="log.name" source="project.code" defaultValue="logback"/>
+
+    <!--输出到控制台-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <!--设置输出格式-->
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight(%-5level) |%yellow(%thread) %blue([%logger]) - %cyan(%msg%n)
-            </pattern>
-            <!--设置编码-->
-            <charset>UTF-8</charset>
+
+        <encoder>
+            <pattern>${log.pattern}</pattern>
         </encoder>
     </appender>
 
-    <!--文件输出,时间窗口滚动-->
-    <appender name="timeFileOutput" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <!--日志名,指定最新的文件名，其他文件名使用FileNamePattern -->
-        <File>${LOG_HOME}/timeFile/out.log</File>
-        <!--文件滚动模式-->
+    <!--输出到文件-->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${log.name}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!--日志文件输出的文件名,可设置文件类型为gz,开启文件压缩-->
-            <FileNamePattern>${LOG_HOME}/timeFile/info.%d{yyyy-MM-dd}.%i.log.gz</FileNamePattern>
-            <!--日志文件保留天数-->
-            <MaxHistory>30</MaxHistory>
-            <!--按大小分割同一天的-->
-            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
-                <maxFileSize>10MB</maxFileSize>
-            </timeBasedFileNamingAndTriggeringPolicy>
+            <fileNamePattern>${LOG_PATH}/${log.name}.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--只保留30天-->
+            <maxHistory>30</maxHistory>
         </rollingPolicy>
-
-        <!--输出格式-->
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
-            <!--设置编码-->
-            <charset>UTF-8</charset>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
         </encoder>
-
     </appender>
 
-    <!--指定基础的日志输出级别-->
+    <appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${log.name}.error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${log.name}.error.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!--只保留30天-->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
     <root level="INFO">
-        <!--appender将会添加到这个loger-->
         <appender-ref ref="console"/>
-        <appender-ref ref="timeFileOutput"/>
+        <appender-ref ref="file"/>
+        <appender-ref ref="errorFile"/>
     </root>
+
+    <!--类的全路径additivity=false 不再交由上级root打印，只自己打印即可 -->
+
 </configuration>
