@@ -35,6 +35,7 @@
         <module>spring-demo-minio</module>
         <module>spring-demo-itext7</module>
         <module>spring-demo-office</module>
+        <module>spring-demo-es7</module>
     </modules>
 
     <dependencyManagement>
@@ -103,6 +104,13 @@
                 <groupId>org.springframework.kafka</groupId>
                 <artifactId>spring-kafka</artifactId>
                 <version>2.8.3</version>
+            </dependency>
+            <!-- elasticsearch -->
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-elasticsearch -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+                <version>2.6.3</version>
             </dependency>
             <!-- slf4j -->
             <dependency>
@@ -276,6 +284,11 @@
             <dependency>
                 <groupId>com.feng.demo</groupId>
                 <artifactId>spring-demo-office</artifactId>
+                <version>${spring-demo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.feng.demo</groupId>
+                <artifactId>spring-demo-es7</artifactId>
                 <version>${spring-demo.version}</version>
             </dependency>
             <!-- 子模块END  -->

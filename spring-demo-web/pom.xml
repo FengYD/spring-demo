@@ -62,6 +62,11 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
+            <artifactId>spring-demo-es7</artifactId>
+            <version>${spring-demo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.feng</groupId>
             <artifactId>spring-demo-minio</artifactId>
             <version>${spring-demo.version}</version>
             <exclusions>

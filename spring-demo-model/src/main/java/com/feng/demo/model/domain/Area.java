@@ -27,6 +27,8 @@ public class Area extends BaseDomain {
 
     private Integer level;
 
+    private String mergerName;
+
     private String pinYin;
 
     private String code;
