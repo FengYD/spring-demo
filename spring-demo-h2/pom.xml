@@ -28,7 +28,7 @@
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>spring-boot-starter-jdbc</artifactId>

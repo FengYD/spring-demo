@@ -15,7 +15,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -24,38 +27,43 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
+            <artifactId>spring-demo-kafka</artifactId>
+            <version>${spring-demo.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.feng</groupId>
             <artifactId>spring-demo-redis</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-mysql</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-h2</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-model</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-itext7</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-minio</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${spring-demo.version}</version>
             <exclusions>
                 <exclusion>
                     <artifactId>jackson-databind</artifactId>
