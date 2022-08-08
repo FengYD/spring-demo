@@ -7,6 +7,7 @@
 - [x] spring-kafka
 - [x] spring-office(word excel)
 - [x] spring-itext7(pdf)
+- [x] spring-es7
 
 - multi-datasource
 - thread pool
