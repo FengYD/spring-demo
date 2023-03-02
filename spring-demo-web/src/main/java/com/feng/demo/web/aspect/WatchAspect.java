@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 public class WatchAspect {
 
     @Autowired
-    private HttpServletRequest request;
+    private HttpServletRequest httpServletRequest;
 
     @Pointcut("execution(public * com.feng.demo.web.controller.*.*(..)) && @annotation(com.feng.demo.web.aspect.TimeWatch)")
     public void watch() {
@@ -33,7 +33,7 @@ public class WatchAspect {
     @Before("watch()")
     public void cutBefore() {
         ThreadLocalUtils.set(ThreadLocalKey.START_TIME, System.nanoTime());
-        String uri = request.getRequestURI();
+        String uri = httpServletRequest.getRequestURI();
         ThreadLocalUtils.set(ThreadLocalKey.URI, uri);
         log.info("traceId: {}, uri: {}, start: {}", ThreadLocalUtils.get(ThreadLocalKey.TRACE_ID),
                 uri, ThreadLocalUtils.get(ThreadLocalKey.START_TIME));

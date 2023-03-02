@@ -9,9 +9,9 @@
 - [x] spring-itext7(pdf)
 - [x] spring-es7
 
-- multi-datasource
-- thread pool
-- after running task
-- global exception handle
-- auth token
-- time watch
+- [x] multi-datasource
+- [x] thread pool
+- [x] after running task
+- [x] global exception handle
+- [x] auth token
+- [x] time watch

@@ -29,12 +29,6 @@
             <groupId>com.feng</groupId>
             <artifactId>spring-demo-model</artifactId>
             <version>${spring-demo.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-boot-starter-jdbc</artifactId>
-                    <groupId>org.springframework.boot</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
     </dependencies>
 
