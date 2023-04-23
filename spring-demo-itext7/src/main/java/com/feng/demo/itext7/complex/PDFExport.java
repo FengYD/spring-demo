@@ -1,7 +1,5 @@
 package com.feng.demo.itext7.complex;
 
-import com.itextpdf.io.font.PdfEncodings;
-import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -13,7 +11,9 @@ import com.itextpdf.layout.properties.TextAlignment;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @author fengyadong
@@ -22,11 +22,13 @@ import java.util.*;
  */
 public class PDFExport {
 
-    private static final String Song = "SimSun.ttf";
-    private static final String FangSong = "simFang.ttf";
-    private static final String HuaWen = "华文仿宋.ttf";
+    private static final String Song = "宋体";
+    private static final String FangSong = "仿宋";
+    private static final String HuaWen = "华文仿宋";
 
-    static Map<String, PdfFont> fontMap = new HashMap<>();
+    private static PdfFont fontSong;
+    private static PdfFont fontFangSong;
+    private static PdfFont fontHuaWen;
 
     public static void main(String[] args) throws IOException {
         loadFonts();
@@ -40,35 +42,27 @@ public class PDFExport {
         document.setBottomMargin(96);
         document.setLeftMargin(79);
         document.setRightMargin(74);
-        Paragraph header1 = new Paragraph(model.getSendManDeptName()).setFont(fontMap.get(Song)).setFontSize(16).setTextAlignment(TextAlignment.CENTER);
-        Paragraph header2 = new Paragraph("协助提供数据函").setFont(fontMap.get(Song)).setFontSize(16).setTextAlignment(TextAlignment.CENTER);
-        Paragraph assistLetterNo = new Paragraph(model.getSendManDeptName()).setFont(fontMap.get(FangSong)).setFontSize(14).setTextAlignment(TextAlignment.RIGHT);
+        Paragraph header1 = new Paragraph(model.getSendManDeptName()).setFont(fontSong).setFontSize(16).setTextAlignment(TextAlignment.CENTER);
+        Paragraph header2 = new Paragraph("协助提供数据函").setFont(fontSong).setFontSize(16).setTextAlignment(TextAlignment.CENTER);
+        Paragraph assistLetterNo = new Paragraph(model.getSendManDeptName()).setFont(fontFangSong).setFontSize(14).setTextAlignment(TextAlignment.RIGHT);
         document.add(header1).add(header2).add(assistLetterNo);
         pdf.close();
     }
 
     private static void loadFonts() throws IOException {
-        PdfFont defaultFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
         String os = System.getProperty("os.name");
         boolean isWin = false;
         if (os != null && os.toLowerCase().startsWith("windows")) {
             isWin = true;
         }
         if (isWin) {
-            PdfFont fontSong = PdfFontFactory.createFont("C:/Windows/Fonts/" + Song, PdfEncodings.UTF8);
-            fontMap.put(Song, Optional.ofNullable(fontSong).orElse(defaultFont));
-            PdfFont fontFangSong = PdfFontFactory.createFont("C:/Windows/Fonts/" + FangSong, PdfEncodings.UTF8);
-            fontMap.put(FangSong, Optional.ofNullable(fontFangSong).orElse(defaultFont));
-            PdfFont fontHuaWen = PdfFontFactory.createFont("C:/Windows/Fonts/" + HuaWen, PdfEncodings.UTF8);
-            fontMap.put(HuaWen, Optional.ofNullable(fontHuaWen).orElse(defaultFont));
+            PdfFontFactory.registerSystemDirectories();
         } else {
-            PdfFont fontSong = PdfFontFactory.createFont("/usr/share/fonts/myfonts/" + Song, PdfEncodings.UTF8);
-            fontMap.put(Song, Optional.ofNullable(fontSong).orElse(defaultFont));
-            PdfFont fontFangSong = PdfFontFactory.createFont("/usr/share/fonts/myfonts/" + FangSong, PdfEncodings.UTF8);
-            fontMap.put(FangSong, Optional.ofNullable(fontFangSong).orElse(defaultFont));
-            PdfFont fontHuaWen = PdfFontFactory.createFont("/usr/share/fonts/myfonts/" + HuaWen, PdfEncodings.UTF8);
-            fontMap.put(HuaWen, Optional.ofNullable(fontHuaWen).orElse(defaultFont));
+            PdfFontFactory.registerDirectory("/usr/share/fonts/myfonts");
         }
+        fontSong = PdfFontFactory.createRegisteredFont(Song);
+        fontFangSong = PdfFontFactory.createRegisteredFont(FangSong);
+        fontHuaWen = PdfFontFactory.createRegisteredFont(HuaWen);
     }
 
     private static AssistLetterExportModel buildModel() {
