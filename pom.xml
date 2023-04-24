@@ -32,7 +32,6 @@
         <module>spring-demo-h2</module>
         <module>spring-demo-web</module>
         <module>spring-demo-model</module>
-        <module>spring-demo-utils</module>
         <module>spring-demo-minio</module>
         <module>spring-demo-itext7</module>
         <module>spring-demo-office</module>
@@ -286,11 +285,6 @@
                 <version>1.11.1</version>
             </dependency>
             <!-- 子模块  -->
-            <dependency>
-                <groupId>com.feng</groupId>
-                <artifactId>spring-demo-utils</artifactId>
-                <version>${spring-demo.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.feng</groupId>
                 <artifactId>spring-demo-model</artifactId>

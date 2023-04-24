@@ -47,11 +47,6 @@
         </dependency>
         <dependency>
             <groupId>com.feng</groupId>
-            <artifactId>spring-demo-utils</artifactId>
-            <version>${spring-demo.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.feng</groupId>
             <artifactId>spring-demo-itext7</artifactId>
             <version>${spring-demo.version}</version>
         </dependency>
