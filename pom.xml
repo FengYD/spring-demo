@@ -21,6 +21,7 @@
         <lombok.version>1.18.22</lombok.version>
         <h2.version>1.4.196</h2.version>
         <itext7.version>7.2.1</itext7.version>
+        <pdfbox.version>2.0.28</pdfbox.version>
     </properties>
 
 
@@ -37,6 +38,7 @@
         <module>spring-demo-office</module>
         <module>spring-demo-es7</module>
         <module>spring-demo-common</module>
+        <module>spring-demo-pdfbox</module>
     </modules>
 
     <dependencies>
@@ -197,6 +199,38 @@
                 <version>${itext7.version}</version>
             </dependency>
             <!--  itext7 end  -->
+            <!-- pdfbox start -->
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/fontbox -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>fontbox</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/pdfbox-tools -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>pdfbox-tools</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/xmpbox -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>xmpbox</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/org.apache.pdfbox/preflight -->
+            <dependency>
+                <groupId>org.apache.pdfbox</groupId>
+                <artifactId>preflight</artifactId>
+                <version>${pdfbox.version}</version>
+            </dependency>
+            <!-- pdfbox end -->
             <!-- https://mvnrepository.com/artifact/io.minio/minio -->
             <dependency>
                 <groupId>io.minio</groupId>

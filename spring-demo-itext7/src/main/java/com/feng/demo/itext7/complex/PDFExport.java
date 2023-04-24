@@ -1,5 +1,7 @@
 package com.feng.demo.itext7.complex;
 
+import com.itextpdf.kernel.colors.Color;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
@@ -47,12 +49,20 @@ public class PDFExport {
         document.setBottomMargin(96);
         document.setLeftMargin(79);
         document.setRightMargin(74);
-        Paragraph header1 = new Paragraph(model.getSendManDeptName()).setFont(fontSong).setFontSize(26).setTextAlignment(TextAlignment.CENTER);
-        Paragraph header2 = new Paragraph("协助提供数据函").setFont(fontSong).setFontSize(26).setTextAlignment(TextAlignment.CENTER);
-        Paragraph assistLetterNo = new Paragraph(model.getSendManDeptName()).setFont(fontFangSong).setFontSize(14).setTextAlignment(TextAlignment.RIGHT);
+        Paragraph header1 = new Paragraph(model.getSendManDeptName())
+                .setFont(fontSong).setFontSize(22).setBold()
+                .setTextAlignment(TextAlignment.CENTER);
+        Paragraph header2 = new Paragraph("协助提供数据函")
+                .setFont(fontSong).setFontSize(22).setBold()
+                .setTextAlignment(TextAlignment.CENTER);
+        Paragraph assistLetterNo = new Paragraph(model.getAssistLetterNo())
+                .setFont(fontFangSong).setFontSize(16)
+                .setTextAlignment(TextAlignment.RIGHT);
         document.add(header1).add(header2).add(assistLetterNo);
 
-        Paragraph p1 = new Paragraph(model.getAssistPlatEntityName()).setFont(fontFangSong).setFontSize(16).setTextAlignment(TextAlignment.LEFT);
+        Paragraph p1 = new Paragraph(model.getAssistPlatEntityName())
+                .setFont(fontFangSong).setFontSize(16)
+                .setTextAlignment(TextAlignment.LEFT);
         Paragraph p2 = new Paragraph(model.getAssistReason())
                 .setFont(fontFangSong).setFontSize(16)
                 .setTextAlignment(TextAlignment.LEFT)
@@ -111,11 +121,17 @@ public class PDFExport {
                     .setTextAlignment(TextAlignment.LEFT)
                     .setFirstLineIndent(32);
             document.add(tableName);
-            Table table = new Table(new float[]{4, 6}).useAllAvailableWidth();
-            Paragraph tableHeader1 = new Paragraph("数据类别").setFont(fontHuaWen).setFontSize(16);
-            table.addHeaderCell(new Cell().add(tableHeader1));
-            Paragraph tableHeader2 = new Paragraph("具体数据项").setFont(fontHuaWen).setFontSize(16);
-            table.addHeaderCell(new Cell().add(tableHeader2));
+            Table table = new Table(new float[]{4, 6}).useAllAvailableWidth().setMarginLeft(32);
+            Color blueColor = new DeviceRgb(153,204,255);
+            Paragraph tableHeader1 = new Paragraph("数据类别")
+                    .setFont(fontHuaWen).setFontSize(12)
+                    .setBackgroundColor(blueColor)
+                    .setTextAlignment(TextAlignment.CENTER);
+            table.addHeaderCell(new Cell().setBackgroundColor(blueColor).add(tableHeader1));
+            Paragraph tableHeader2 = new Paragraph("具体数据项")
+                    .setFont(fontHuaWen).setFontSize(12)
+                    .setTextAlignment(TextAlignment.CENTER);
+            table.addHeaderCell(new Cell().setBackgroundColor(blueColor).add(tableHeader2));
             Map<String, List<String>> tempMap = new LinkedHashMap<>();
             for (AssistLetterExportModel.AssistPlatReplyVO replyVO : vo.getAssistPlatReplyVOList()) {
                 if (tempMap.containsKey(replyVO.getAssistReplyType())) {
@@ -129,9 +145,9 @@ public class PDFExport {
             for (String tempKey : tempMap.keySet()) {
                 List<String> tempList = tempMap.get(tempKey);
                 Paragraph type = new Paragraph(tempKey)
-                        .setFont(fontFangSong).setFontSize(16)
+                        .setFont(fontFangSong).setFontSize(12)
                         .setTextAlignment(TextAlignment.LEFT);
-                Cell cell = null;
+                Cell cell;
                 if (tempList.size() > 1) {
                     cell = new Cell(tempList.size(), 1).add(type).setVerticalAlignment(VerticalAlignment.MIDDLE);
                 } else {
@@ -140,8 +156,8 @@ public class PDFExport {
                 table.addCell(cell);
                 tempList.forEach(
                         e -> {
-                            Paragraph name = new Paragraph(tempKey)
-                                    .setFont(fontFangSong).setFontSize(16)
+                            Paragraph name = new Paragraph(e)
+                                    .setFont(fontFangSong).setFontSize(12)
                                     .setTextAlignment(TextAlignment.LEFT);
                             Cell cellName = new Cell().add(name).setVerticalAlignment(VerticalAlignment.MIDDLE);
                             table.addCell(cellName);
